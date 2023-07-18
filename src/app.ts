@@ -27,7 +27,7 @@ app.post('/send', async (req: Request, res: Response) => {
     }
 })
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT ? Number(process.env.PORT) : 5000
 
 app.listen(port, () => {
     console.log('rodando')
