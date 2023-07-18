@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsup src",
-    "start": "nodemon dist/app.js",
+    "start": "nodemon src/app.ts",
     "vercel-build": "echo hello"
   },
   "keywords": [],
