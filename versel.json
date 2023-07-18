@@ -1,15 +1,14 @@
 {
-    "version": 2,
-    "builds": [
+  "rewrites":[{
+
+    "routes": [
       {
-        "src": "src/app.ts",
-        "use": "@now/node"
-    }
-],
-"routes": [
-  {
-    "src": "/(.*)",
-    "dest": "api"
+        "source": "/(.*)",
+        "destination": "/api"
+      }
+    ]
   }
-]
+
+  ]
+
 }
