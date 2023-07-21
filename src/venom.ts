@@ -14,6 +14,7 @@ class Sender {
   public client: Whatsapp;
   private connected: boolean;
   private qr: QrCode
+  private session: string
 
   get isConnected(): boolean {
     return this.connected
@@ -66,7 +67,7 @@ class Sender {
 
     }
 
-    create("ws-sender", qr, status)
+    create('bot', qr, status)
       .then((client) => start(client))
       .catch((error) => console.log(error))
   }
