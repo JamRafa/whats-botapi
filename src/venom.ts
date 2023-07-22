@@ -69,23 +69,14 @@ class Sender {
 
         }
 
-        const launchOptions = {
-            headless: true,
-            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        const puppeteerOptions: LaunchOptions & {args: string[]} = {
+            args: ['--headless', '--no-sandbox', '--disable-setuid-sandbox'],
         };
-
-        puppeteer
-            .launch(launchOptions)
-            .then(async (browser) => {
-                const page = await browser.newPage();
-                create('bot', qr, status)
-                    .then((client) => start(client))
-                    .catch((error) => console.log(error))
-            })
-            .catch((error) => {
-                console.error('Error launching Puppeteer:', error);
-            });
-
+        create('bot', qr, status, {
+            puppeteerOptions
+        })
+            .then((client) => start(client))
+            .catch((error) => console.error('Error creating Venom bot:', error));
     }
 }
 
