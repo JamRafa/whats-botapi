@@ -70,6 +70,7 @@ class Sender {
         }
 
         const puppeteerOptions: LaunchOptions & {args: string[]} = {
+            executablePath:  puppeteer.executablePath(),
             args: ['--headless', '--no-sandbox', '--disable-setuid-sandbox'],
         };
         create('bot', qr, status, {
